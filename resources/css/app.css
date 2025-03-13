@@ -17,6 +17,10 @@
     background-color: #888;
 }
 
+body {
+   font-family: "Inter", sans-serif;
+}
+
 .navbar-fixed {
     @apply z-[10] bg-white bg-opacity-80 sticky right-0 top-0 left-0;
     backdrop-filter: blur(5px);
