@@ -21,8 +21,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // $socialMedia = SocialMediaAccount::latest()->get();
+        $socialMedia = SocialMediaAccount::latest()->get();
 
-        // View::share('socialMedia', $socialMedia);
+        View::share('socialMedia', $socialMedia);
     }
 }
