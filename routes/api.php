@@ -43,4 +43,11 @@ Route::middleware(ValidateApiToken::class)->group(function () {
 
         return responseModel(200, 'Get categories successfully', CategoryResource::collection($categories));
     });
+
+    Route::get('categories/{category}', function (Category $category) {
+
+        $query = $category->load("posts");
+
+        return responseModel(200, 'Get categories successfully', new CategoryResource($query));
+    });
 });
