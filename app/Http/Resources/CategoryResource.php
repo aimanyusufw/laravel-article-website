@@ -17,9 +17,9 @@ class CategoryResource extends JsonResource
         return [
             "name" => $this->name,
             "slug" => $this->slug,
-            "images" => [
-                "thumbnail" => $this->thumbnail,
-                "thumbnail_url" => $this->thumbnail_url,
+            "banner" => [
+                "path" => $this->thumbnail,
+                "url" => $this->thumbnail_url,
             ],
             "posts" => PostCardResource::collection($this->whenLoaded('posts')),
             "created_at" => $this->created_at,
