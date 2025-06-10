@@ -31,7 +31,7 @@ Route::middleware(ValidateApiToken::class)->group(function () {
 
     Route::get("/random/posts", function () {
         $posts = Post::with(["author", "category"])->published()->inRandomOrder()->take(3)->get();
-        return responseModel(200, "Get post successfully", [PostCardResource::collection($posts)]);
+        return responseModel(200, "Get post successfully", PostCardResource::collection($posts));
     });
 
     Route::get("/top/posts", function () {
