@@ -11,7 +11,7 @@ return [
          */
         'defaults'       => [
             'title'        => false, // set false to total remove
-            'titleBefore'  => env('APP_NAME'), // Put defaults.title before page title, like 'It's Over 9000! - Dashboard'
+            'titleBefore'  => env('APP_NAME') || "Factoid", // Put defaults.title before page title, like 'It's Over 9000! - Dashboard'
             'description'  => false, // set false to total remove
             'separator'    => ' - ',
             'keywords'     => [],
