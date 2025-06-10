@@ -29,6 +29,17 @@ Route::middleware(ValidateApiToken::class)->group(function () {
         return responseModel(200, "Get post successfully", ["post" => new PostResource($data), "related_posts" => PostCardResource::collection($posts)]);
     });
 
+    Route::get("/random/posts", function () {
+        $posts = Post::with(["author", "category"])->published()->inRandomOrder()->take(3)->get();
+        return responseModel(200, "Get post successfully", [PostCardResource::collection($posts)]);
+    });
+
+    Route::get("/top/posts", function () {
+        $post = Post::with(["author", "category"])->published()->latest()->take(1)->get();
+        return responseModel(200, "Get post successfully", new PostCardResource($post[0]));
+    });
+
+
     Route::get('categories', function (Request $request) {
         $countPerPage = $request->input('per_page', 5);
         $getPosts = filter_var($request->input('with_posts'), FILTER_VALIDATE_BOOLEAN);
